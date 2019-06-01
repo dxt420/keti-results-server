@@ -198,8 +198,9 @@ app.post('/message', dialogFlowApp);
 
 // })
 
-// app.listen(process.env.PORT, () => console.log('Listening at port' + process.env.PORT))
-app.listen('5000', () => console.log('Listening at port 5000'))
+app.listen(process.env.PORT, () => console.log('Listening at port' + process.env.PORT))
+
+// app.listen('5000', () => console.log('Listening at port 5000'))
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
 
