@@ -77,7 +77,7 @@ app.intent("hpv", (conv) => {
   console.log("--------------------------------");
 
   console.log("--------------------------------");
-  console.log("Items =>", conv.body.payload.google.richResponse.items);
+  console.log("Items =>", conv.responses);
   console.log("--------------------------------");
 
   
