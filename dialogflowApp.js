@@ -75,6 +75,12 @@ app.intent("hpv", (conv) => {
   console.log("--------------------------------");
   console.log("HPV Conv Request =>", conv);
   console.log("--------------------------------");
+
+  console.log("--------------------------------");
+  console.log("Items =>", conv.body.payload.google.richResponse.items);
+  console.log("--------------------------------");
+
+  
   // conv.ask(`kick it balotelli`);
 });
 
