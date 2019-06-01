@@ -1,5 +1,5 @@
 const axios = require('axios')
-const accessToken = process.env.DIALOGFLOW_ACCESS_TOKEN
+const accessToken = 'afa9bbd1a12743a482ce7fb2e21b78f0'
 const baseURL = 'https://api.dialogflow.com/v1/query?v=20150910'
 module.exports = {
   send (message) {
