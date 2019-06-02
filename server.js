@@ -146,7 +146,7 @@ app.post('/message', async (req, res) => {
   console.log("--------------------------------");
 
   const chat = {
-    message: req.body.queryResult.queryText,
+    ...req.body,
     id: shortId.generate(),
     createdAt: new Date().toISOString()
   }
@@ -160,7 +160,7 @@ app.post('/message', async (req, res) => {
 //   //update pusher listeners
   pusher.trigger('chat-bot', 'chat', chat)
 
-  const message = req.body.queryResult.queryText;
+  const message = req.body.message;
 //   // console.log(message);
   const response = await dialogFlow.send(message);
 
