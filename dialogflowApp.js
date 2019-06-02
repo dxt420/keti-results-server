@@ -2,7 +2,7 @@ const functions = require('firebase-functions')
 const { WebhookClient } = require('dialogflow-fulfillment')
 const { Card, Suggestion, BasicCard, Button, Image } = require('dialogflow-fulfillment')
 const { dialogflow } = require('actions-on-google')
-const Pusher = require('pusher')
+
 // const dialogFlow = require('./diagflow')
 
 // const agent = new WebhookClient({
@@ -15,13 +15,6 @@ const app = dialogflow({
   debug: true
 });
 
-const pusher = new Pusher({
-  appId: '763384',
-  key: '7e68e39c122f6cbf6b79',
-  secret: '9be54d8e58c065d44a06',
-  cluster: 'mt1',
-  encrypted: true
-})
 
 
 
@@ -59,17 +52,7 @@ const pusher = new Pusher({
 
 
 app.intent("hpv", (conv) => {
-  const chat = {
-    message: req.body.queryResult.queryText,
-    id: shortId.generate(),
-    createdAt: new Date().toISOString()
-  }
 
-  pusher.trigger('chat-bot', 'chat', chat)
-
-  // const message = req.body.queryResult.queryText;
-  //   // console.log(message);
-    // const response = await dialogFlow.send(message);
 
 
 

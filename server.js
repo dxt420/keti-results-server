@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-
+const Pusher = require('pusher')
 const cors = require('cors')
 const firebase = require('firebase')
 const admin = require('firebase-admin')
@@ -27,6 +27,15 @@ const firebaseConfig = {
   messagingSenderId: "885878744432"
 
 }
+
+const pusher = new Pusher({
+  appId: '763384',
+  key: '7e68e39c122f6cbf6b79',
+  secret: '9be54d8e58c065d44a06',
+  cluster: 'mt1',
+  encrypted: true
+})
+
 
 admin.initializeApp(firebaseConfig)
 
@@ -104,30 +113,37 @@ app.post('/getUser', (req, res) => {
 
 })
 
-app.post('/message', dialogFlowApp);
-// app.post('/message', async (req, res) => {
+app.post('/initiate',  dialogFlowApp);
+
+
+
+
+
+
+// });
+app.post('/message', async (req, res) => {
 //   // simulate actual db save with id and createdAt added
 //   console.log(req.body.queryResult.fulfillmentMessages[0]);
 
-//   // const action = req.body.queryResult.queryText;
+  // const action = req.body.queryResult.queryText;
 
 //   console.log("--------------------------------");
 //   // console.log("Action =>", action);
 //   console.log("--------------------------------");
 
 
-//   console.log("--------------------------------");
-//   console.log("User Text =>", req.body.queryResult.queryText);
-//   console.log("--------------------------------");
+  console.log("--------------------------------");
+  console.log("User Text =>", req.body.queryResult.queryText);
+  console.log("--------------------------------");
 
 
 
 
-//   const chat = {
-//     ...req.body,
-//     id: shortId.generate(),
-//     createdAt: new Date().toISOString()
-//   }
+  // const chat = {
+  //   ...req.body,
+  //   id: shortId.generate(),
+  //   createdAt: new Date().toISOString()
+  // }
 
 //   // console.log();
 //   // console.log("chat =>", chat);
@@ -138,12 +154,25 @@ app.post('/message', dialogFlowApp);
 //   //update pusher listeners
 //   pusher.trigger('chat-bot', 'chat', chat)
 
-//   const message = req.body.queryResult.queryText;
+  const message = req.body.queryResult.queryText;
 //   // console.log(message);
-//   const response = await dialogFlow.send(message);
-//   //console.log(response.data);
-//   //console.log(response.data.result);
-//   //console.log(response.data.result.fulfillment);
+  const response = await dialogFlow.send(message);
+
+  console.log("--------------------------------");
+  console.log("Response Data =>",response.data);
+  console.log("--------------------------------");
+
+  console.log("--------------------------------");
+  console.log("Response Data Result =>",response.data.result);
+  console.log("--------------------------------");
+
+  console.log("--------------------------------");
+  console.log("Response Data Result Fulfillment =>", response.data.result.fulfillment);
+
+  console.log("--------------------------------");
+  
+  
+  
 
 
 //   console.log("--------------------------------");
@@ -189,7 +218,7 @@ app.post('/message', dialogFlowApp);
 //   res.send(chat);
 
 
-// })
+})
 
 app.listen(process.env.PORT, () => console.log('Listening at port' + process.env.PORT))
 
