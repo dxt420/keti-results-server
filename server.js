@@ -139,11 +139,11 @@ app.post('/message', async (req, res) => {
 
 
 
-  // const chat = {
-  //   ...req.body,
-  //   id: shortId.generate(),
-  //   createdAt: new Date().toISOString()
-  // }
+  const chat = {
+    message: req.body.queryResult.queryText,
+    id: shortId.generate(),
+    createdAt: new Date().toISOString()
+  }
 
 //   // console.log();
 //   // console.log("chat =>", chat);
@@ -152,7 +152,7 @@ app.post('/message', async (req, res) => {
 //   console.log("--------------------------------");
 
 //   //update pusher listeners
-//   pusher.trigger('chat-bot', 'chat', chat)
+  pusher.trigger('chat-bot', 'chat', chat)
 
   const message = req.body.queryResult.queryText;
 //   // console.log(message);
@@ -214,8 +214,18 @@ app.post('/message', async (req, res) => {
 //   }
 
 
+    // trigger this update to our pushers listeners
+    pusher.trigger('chat-bot', 'chat', {
 
-//   res.send(chat);
+      message: `${response.data.result.fulfillment.speech}`,
+      type: 'bot',
+      kind: 'ZERO',
+      createdAt: new Date().toISOString(),
+      id: shortId.generate()
+    })
+
+
+  res.send(chat);
 
 
 })
