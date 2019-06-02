@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const Pusher = require('pusher')
+
 const cors = require('cors')
 const firebase = require('firebase')
 const admin = require('firebase-admin')
