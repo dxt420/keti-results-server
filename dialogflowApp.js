@@ -66,7 +66,7 @@ app.intent("hpv", (conv) => {
   //   // agent.add(`Thats great to hear. Anyways, how can i help you today ` + lastName);
   //   conv.ask('Hi ' +lastName);
   // });
-  conv.add(`Hi `);
+  conv.add(`Hi there my friend`);
   // conv.add(`You good`);
 
 
@@ -97,13 +97,6 @@ app.intent("hpv - yes", (conv) => {
 
 
 });
-
-
-
-
-
-
-
 
 
 
