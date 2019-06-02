@@ -172,10 +172,10 @@ app.post('/message', async (req, res) => {
   console.log("Response Data Result =>",response.data.result);
   console.log("--------------------------------");
 
-  console.log("--------------------------------");
-  console.log("Response Data Result Fulfillment =>", response.data.result.fulfillment);
+  // console.log("--------------------------------");
+  // console.log("Response Data Result Fulfillment =>", response.data.result.fulfillment);
 
-  console.log("--------------------------------");
+  // console.log("--------------------------------");
   
   
   
