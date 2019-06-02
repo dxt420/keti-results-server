@@ -67,7 +67,7 @@ app.intent("hpv", (conv) => {
   //   conv.ask('Hi ' +lastName);
   // });
   conv.add(`Hi `);
-  conv.add(`You good`);
+  // conv.add(`You good`);
 
 
   // console.log("--------------------------------");
