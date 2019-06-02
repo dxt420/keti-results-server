@@ -70,25 +70,16 @@ app.intent("hpv", (conv) => {
   conv.add(`You good`);
 
 
-  console.log("--------------------------------");
-  console.log("HPV Conv Request =>", conv);
-  console.log("--------------------------------");
+  // console.log("--------------------------------");
+  // console.log("HPV Conv Request =>", conv);
+  // console.log("--------------------------------");
 
-  console.log("--------------------------------");
-  console.log("Items =>", conv.responses);
-  console.log("--------------------------------");
+  // console.log("--------------------------------");
+  // console.log("Items =>", conv.responses);
+  // console.log("--------------------------------");
 
     // console.log(conv.request);
 
-
-    pusher.trigger('chat-bot', 'chat', {
-
-            message: `${conv.responses}`,
-            type: 'bot',
-            kind: 'ZERO',
-            createdAt: new Date().toISOString(),
-            id: shortId.generate()
-          })
 
   
   // conv.ask(`kick it balotelli`);
