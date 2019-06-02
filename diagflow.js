@@ -1,6 +1,6 @@
 const axios = require('axios')
 const accessToken = 'afa9bbd1a12743a482ce7fb2e21b78f0'
-const baseURL = 'https://api.dialogflow.com/v1/query?v=20150910'
+const baseURL = 'https://api.dialogflow.com/v2/detectIntent'
 module.exports = {
   send (message) {
     const data = {
