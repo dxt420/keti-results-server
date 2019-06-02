@@ -54,12 +54,7 @@ app.intent("hpv", (conv) => {
 
 
 
-  // console.log(conv.request);
-  //   const chat = {
-  //   ...req.body,
-  //   id: shortId.generate(),
-  //   createdAt: new Date().toISOString()
-  // }
+
 
 
   // handler for this intent
@@ -79,6 +74,15 @@ app.intent("hpv", (conv) => {
   console.log("--------------------------------");
   console.log("Items =>", conv.responses);
   console.log("--------------------------------");
+
+    // console.log(conv.request);
+    const chat = {
+    message: conv.responses,
+    id: shortId.generate(),
+    createdAt: new Date().toISOString()
+  }
+
+  pusher.trigger('chat-bot', 'chat', chat)
 
   
   // conv.ask(`kick it balotelli`);
