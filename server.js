@@ -132,12 +132,18 @@ app.post('/message', async (req, res) => {
 //   console.log("--------------------------------");
 
 
+  // console.log("--------------------------------");
+  // console.log("User Text =>", req.body.queryResult.queryText);
+  // console.log("--------------------------------");
+
   console.log("--------------------------------");
-  console.log("User Text =>", req.body.queryResult.queryText);
+  console.log("Request =>", req);
   console.log("--------------------------------");
 
 
-
+  console.log("--------------------------------");
+  console.log("Request Body=>", req.body);
+  console.log("--------------------------------");
 
   const chat = {
     message: req.body.queryResult.queryText,
