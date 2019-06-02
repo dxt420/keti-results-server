@@ -17,13 +17,6 @@ const dialogFlowApp = require("./dialogflowApp");
 
 
 
-const pusher = new Pusher({
-  appId: '763384',
-  key: '7e68e39c122f6cbf6b79',
-  secret: '9be54d8e58c065d44a06',
-  cluster: 'mt1',
-  encrypted: true
-})
 
 const firebaseConfig = {
   apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",

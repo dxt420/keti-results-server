@@ -14,6 +14,15 @@ const app = dialogflow({
   debug: true
 });
 
+const pusher = new Pusher({
+  appId: '763384',
+  key: '7e68e39c122f6cbf6b79',
+  secret: '9be54d8e58c065d44a06',
+  cluster: 'mt1',
+  encrypted: true
+})
+
+
 
 
 
@@ -49,7 +58,17 @@ const app = dialogflow({
 
 
 app.intent("hpv", (conv) => {
+  const chat = {
+    message: req.body.queryResult.queryText,
+    id: shortId.generate(),
+    createdAt: new Date().toISOString()
+  }
 
+  pusher.trigger('chat-bot', 'chat', chat)
+
+  // const message = req.body.queryResult.queryText;
+  //   // console.log(message);
+    // const response = await dialogFlow.send(message);
 
 
 
@@ -76,13 +95,16 @@ app.intent("hpv", (conv) => {
   console.log("--------------------------------");
 
     // console.log(conv.request);
-    const chat = {
-    message: conv.responses,
-    id: shortId.generate(),
-    createdAt: new Date().toISOString()
-  }
 
-  pusher.trigger('chat-bot', 'chat', chat)
+
+    pusher.trigger('chat-bot', 'chat', {
+
+            message: `${conv.responses}`,
+            type: 'bot',
+            kind: 'ZERO',
+            createdAt: new Date().toISOString(),
+            id: shortId.generate()
+          })
 
   
   // conv.ask(`kick it balotelli`);
