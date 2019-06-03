@@ -165,17 +165,17 @@ app.post('/message', async (req, res) => {
   const response = await dialogFlow.send(message);
 
   console.log("--------------------------------");
-  console.log("Response Data =>",response.data);
+  // console.log("Response Data =>",response.data);
   console.log("--------------------------------");
 
   console.log("--------------------------------");
-  console.log("Response Data Result =>",response.data.result);
+  // console.log("Response Data Result =>",response.data.result);
   console.log("--------------------------------");
 
-  // console.log("--------------------------------");
-  // console.log("Response Data Result Fulfillment =>", response.data.result.fulfillment);
+  console.log("--------------------------------");
+  console.log("Response Data Result Fulfillment =>", response.data.result.fulfillment);
 
-  // console.log("--------------------------------");
+  console.log("--------------------------------");
   
   
   
