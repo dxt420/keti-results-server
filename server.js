@@ -223,7 +223,7 @@ app.post('/message', async (req, res) => {
     // trigger this update to our pushers listeners
     pusher.trigger('chat-bot', 'chat', {
 
-      messages: `${response.data.result.fulfillment.messages}`,
+      messages: response.data.result.fulfillment.messages,
       type: 'bot',
       kind: 'ZERO',
       createdAt: new Date().toISOString(),
