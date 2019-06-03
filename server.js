@@ -117,11 +117,65 @@ app.post('/initiate',  dialogFlowApp);
 
 
 
+app.post('/sendMessageConsult', async (req, res) => {
+  // simulate actual db save with id and createdAt added
+  console.log(req);
+  const chat = {
+    ...req.body,
+    id: shortId.generate(),
+    createdAt: new Date().toISOString()
+  }
+  //update pusher listeners
+  pusher.trigger('chat-bot', 'chat', chat)
 
+  const message = chat.message;
+
+  const response = await dialogFlow.sendConsult(message);
+  //console.log(response.data);
+  //console.log(response.data.result);
+  //console.log(response.data.result.fulfillment);
+
+  console.log(response.data.result.fulfillment.messages[0]);
+  console.log(response.data.result.fulfillment.messages);
+  console.log(response.data.result.fulfillment.messages[0].type);
+
+
+  if (response.data.result.fulfillment.messages[0].type == 1) {
+    // trigger this update to our pushers listeners
+    pusher.trigger('chat-bot', 'chat', {
+
+      message: `${response.data.result.fulfillment.speech}`,
+      extra: response.data.result.fulfillment.messages[0],
+      type: 'bot',
+      kind: 'ONE',
+      createdAt: new Date().toISOString(),
+      id: shortId.generate()
+    })
+
+
+  } else {
+    // trigger this update to our pushers listeners
+    pusher.trigger('chat-bot', 'chat', {
+
+      message: `${response.data.result.fulfillment.speech}`,
+      type: 'bot',
+      kind: 'ZERO',
+      createdAt: new Date().toISOString(),
+      id: shortId.generate()
+    })
+
+  }
+
+
+
+  res.send(chat)
+
+
+})
 
 
 // });
-app.post('/message', async (req, res) => {
+app.post('/sendMessageResults', async (req, res) => {
 //   // simulate actual db save with id and createdAt added
 //   console.log(req.body.queryResult.fulfillmentMessages[0]);
 
@@ -162,7 +216,7 @@ app.post('/message', async (req, res) => {
 
   const message = req.body.message;
 //   // console.log(message);
-  const response = await dialogFlow.send(message);
+  const response = await dialogFlow.sendResult(message);
 
   console.log("--------------------------------");
   // console.log("Response Data =>",response.data);
