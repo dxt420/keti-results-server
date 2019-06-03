@@ -117,7 +117,7 @@ app.post('/initiate',  dialogFlowApp);
 
 
 
-app.post('/sendMessageConsult', async (req, res) => {
+app.post('/messageConsult', async (req, res) => {
   // simulate actual db save with id and createdAt added
   console.log(req);
   const chat = {
@@ -175,7 +175,7 @@ app.post('/sendMessageConsult', async (req, res) => {
 
 
 // });
-app.post('/sendMessageResults', async (req, res) => {
+app.post('/messageResults', async (req, res) => {
 //   // simulate actual db save with id and createdAt added
 //   console.log(req.body.queryResult.fulfillmentMessages[0]);
 
