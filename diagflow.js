@@ -31,18 +31,18 @@ module.exports = {
     })
   }
 
-  sendRefer(message) {
-    const data = {
-      query: message,
-      lang: 'en',
-      sessionId: '123456789!@#$%'
-    }
-    return axios.post(baseURL, data, {
-      headers: {
-        Authorization: `Bearer ${accessToken3}`
-      }
-    })
-  }
+  // sendRefer(message) {
+  //   const data = {
+  //     query: message,
+  //     lang: 'en',
+  //     sessionId: '123456789!@#$%'
+  //   }
+  //   return axios.post(baseURL, data, {
+  //     headers: {
+  //       Authorization: `Bearer ${accessToken3}`
+  //     }
+  //   })
+  // }
 
 }
 
