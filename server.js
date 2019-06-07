@@ -187,7 +187,7 @@ app.post('/messageRefer', async (req, res) => {
 
   const message = chat.message;
 
-  const response = await dialogFlow.sendConsult(message);
+  const response = await dialogFlow.sendRefer(message);
   //console.log(response.data);
   //console.log(response.data.result);
   //console.log(response.data.result.fulfillment);
