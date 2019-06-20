@@ -51,7 +51,7 @@ const app = dialogflow({
 // });
 
 
-app.intent("welcome", (conv) => {
+app.intent("Welcome", (conv) => {
 
 
 
