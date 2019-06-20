@@ -1,8 +1,5 @@
-const functions = require('firebase-functions')
-const { WebhookClient } = require('dialogflow-fulfillment')
-const { Card, Suggestion, BasicCard, Button, Image } = require('dialogflow-fulfillment')
 const { dialogflow } = require('actions-on-google')
-const admin = require('firebase-admin')
+
 var server = require('./server');
 
 console.log("In Custom FF");
@@ -22,13 +19,11 @@ app.intent("Welcome", (conv) => {
 });
 
 
-app.intent("hh", (conv) => {
-    // conv.add('Hi ' + server.firstName);
-    conv.add('BIF ');
+app.intent("Fine", (conv) => {
+    conv.add('PDL ');
 });
 
 
 
 module.exports = app;
-// express().use(bodyParser.json(), app).listen(3000);
-// exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
+
