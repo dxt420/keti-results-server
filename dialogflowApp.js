@@ -2,6 +2,10 @@ const functions = require('firebase-functions')
 const { WebhookClient } = require('dialogflow-fulfillment')
 const { Card, Suggestion, BasicCard, Button, Image } = require('dialogflow-fulfillment')
 const { dialogflow } = require('actions-on-google')
+const admin = require('firebase-admin')
+var server = require('./server');
+
+console.log(server.uid);
 
 // const dialogFlow = require('./diagflow')
 
@@ -16,7 +20,17 @@ const app = dialogflow({
 });
 
 
+const firebaseConfig = {
+  apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",
+  authDomain: "chanjia-e9ddb.firebaseapp.com",
+  databaseURL: "https://chanjia-e9ddb.firebaseio.com",
+  projectId: "chanjia-e9ddb",
+  storageBucket: "chanjia-e9ddb.appspot.com",
+  messagingSenderId: "885878744432"
 
+}
+
+admin.initializeApp(firebaseConfig)
 
 
 
@@ -60,13 +74,13 @@ app.intent("Welcome", (conv) => {
 
 
 
-  // handler for this intent
-  //   return admin.database().ref('users').once("value").then((snapshot) => {
-  //   var lastName = snapshot.child(uid).child("firstName").val();
-  //   // agent.add(`Thats great to hear. Anyways, how can i help you today ` + lastName);
-  //   conv.ask('Hi ' +lastName);
-  // });
-  conv.add(`Hi there my friend`);
+
+     admin.database().ref('users').once("value").then((snapshot) => {
+    var lastName = snapshot.child(server.uid).child("firstName").val();
+    // agent.add(`Thats great to hear. Anyways, how can i help you today ` + lastName);
+    conv.ask('Hi ' +lastName);
+  });
+  // conv.add(`Hi there my friend`);
   // conv.add(`You good`);
 
 

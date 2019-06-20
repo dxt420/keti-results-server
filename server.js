@@ -28,6 +28,8 @@ const firebaseConfig = {
 
 }
 
+admin.initializeApp(firebaseConfig)
+
 const pusher = new Pusher({
   appId: '763384',
   key: '7e68e39c122f6cbf6b79',
@@ -37,7 +39,7 @@ const pusher = new Pusher({
 })
 
 
-admin.initializeApp(firebaseConfig)
+
 
 
 
@@ -352,5 +354,6 @@ app.listen(process.env.PORT, () => console.log('Listening at port' + process.env
 // app.listen('5000', () => console.log('Listening at port 5000'))
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
+module.exports.uid = uid;
 
 
