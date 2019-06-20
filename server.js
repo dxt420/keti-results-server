@@ -112,6 +112,9 @@ app.post('/initiate',  dialogFlowApp);
 app.post('/messageConsult', async (req, res) => {
   // simulate actual db save with id and createdAt added
   // console.log(req);
+  console.log(req.body);
+  console.log(req.body.token);
+  console.log(req.body['token']);
   const chat = {
     ...req.body,
     id: shortId.generate(),
