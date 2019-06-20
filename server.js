@@ -111,14 +111,12 @@ app.post('/initiate',  dialogFlowApp);
 
 app.post('/messageConsult', async (req, res) => {
   // simulate actual db save with id and createdAt added
-  // console.log(req);
-  console.log(req.body);
-  console.log(req.body.token);
-  console.log("||||||||||||||  BODY ||||||||||||");
-  console.log(req);
+
   
   console.log("||||||||||||||  TOKEN ||||||||||||");
   console.log(req.body['token']);
+
+
   const chat = {
     ...req.body,
     id: shortId.generate(),
@@ -129,7 +127,7 @@ app.post('/messageConsult', async (req, res) => {
 
   const message = chat.message;
 
-  const response = await dialogFlow.sendConsult(message);
+  const response = await dialogFlow.sendConsult(message,req.body['token']);
 
 
 

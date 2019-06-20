@@ -2,9 +2,9 @@ const { dialogflow } = require('actions-on-google')
 
 var server = require('./server');
 
-console.log("In Custom FF");
-console.log(server.uid);
-console.log(server.firstName)
+// console.log("In Custom FF");
+// console.log(server.uid);
+// console.log(server.firstName)
 
 // Instantiate the Dialogflow client.
 const app = dialogflow({
