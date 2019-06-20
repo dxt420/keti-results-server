@@ -15,7 +15,7 @@ const app = dialogflow({
 
 app.intent("Welcome", (conv) => {
   // conv.add('Hi ' + server.firstName);
-  conv.add('Hi ');
+  conv.add('Hi there');
 });
 
 
