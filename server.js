@@ -62,6 +62,7 @@ app.use(bodyParser.json())
 
 
 var uid
+var firstName
 
 
 
@@ -106,6 +107,12 @@ app.post('/getUser', (req, res) => {
       uid = decodedToken.uid;
       console.log(uid);
       console.log('Dext was here');
+
+      admin.database().ref('users').once("value").then((snapshot) => {
+        firstName = snapshot.child(uid).child("firstName").val();
+       
+     
+      });
 
       res.status(200).send('Looks good!')
 
@@ -355,5 +362,7 @@ app.listen(process.env.PORT, () => console.log('Listening at port' + process.env
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
 module.exports.uid = uid;
+module.exports.firstName = firstName
+
 
 
