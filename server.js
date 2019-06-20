@@ -114,6 +114,7 @@ app.post('/messageConsult', async (req, res) => {
   // console.log(req);
   console.log(req.body);
   console.log(req.body.token);
+  console.log("||||||||||||||  TOKEN ||||||||||||");
   console.log(req.body['token']);
   const chat = {
     ...req.body,
