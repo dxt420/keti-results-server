@@ -11,7 +11,7 @@ require('dotenv').config()
 const shortId = require('shortid')
 const dialogFlow = require('./diagflow')
 const app = express()
-const dialogFlowApp = require("./dialogflowApp");
+
 
 var serviceAccount = require("./serviceAccountKey.json");
 
@@ -67,6 +67,8 @@ app.use(bodyParser.json())
 var uid
 var firstName
 
+console.log(firstName);
+
 
 process.env.DEBUG = 'dialogflow:debug'; // enables lib debugging statements
 
@@ -84,7 +86,7 @@ app.post('/getUser', (req, res) => {
     .then(decodedToken => {
       uid = decodedToken.uid;
       console.log(uid);
-      console.log('Dext was here');
+      // console.log('Dext was here');
 
       admin.database().ref('users').once("value").then((snapshot) => {
         
@@ -100,6 +102,8 @@ app.post('/getUser', (req, res) => {
 
 
 })
+
+const dialogFlowApp = require("./dialogflowApp");
 
 app.post('/initiate',  dialogFlowApp);
 
@@ -244,6 +248,11 @@ app.post('/messageResults', async (req, res) => {
 app.listen(process.env.PORT, () => console.log('Listening at port' + process.env.PORT))
 
 // app.listen('5000', () => console.log('Listening at port 5000'))
+
+
+
+
+
 
 exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
 module.exports.uid = uid;
