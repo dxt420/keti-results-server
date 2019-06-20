@@ -20,18 +20,6 @@ const app = dialogflow({
 });
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",
-  authDomain: "chanjia-e9ddb.firebaseapp.com",
-  databaseURL: "https://chanjia-e9ddb.firebaseio.com",
-  projectId: "chanjia-e9ddb",
-  storageBucket: "chanjia-e9ddb.appspot.com",
-  messagingSenderId: "885878744432"
-
-}
-
-admin.initializeApp(firebaseConfig)
-
 
 
 // Handlers go here..
