@@ -18,17 +18,17 @@ const dialogFlowApp = require("./dialogflowApp");
 
 
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",
-//   authDomain: "chanjia-e9ddb.firebaseapp.com",
-//   databaseURL: "https://chanjia-e9ddb.firebaseio.com",
-//   projectId: "chanjia-e9ddb",
-//   storageBucket: "chanjia-e9ddb.appspot.com",
-//   messagingSenderId: "885878744432"
+const firebaseConfig = {
+  apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",
+  authDomain: "chanjia-e9ddb.firebaseapp.com",
+  databaseURL: "https://chanjia-e9ddb.firebaseio.com",
+  projectId: "chanjia-e9ddb",
+  storageBucket: "chanjia-e9ddb.appspot.com",
+  messagingSenderId: "885878744432"
 
-// }
+}
 
-admin.initializeApp()
+admin.initializeApp(firebaseConfig)
 
 const pusher = new Pusher({
   appId: '763384',
@@ -109,6 +109,7 @@ app.post('/getUser', (req, res) => {
       console.log('Dext was here');
 
       admin.database().ref('users').once("value").then((snapshot) => {
+        console.log(firstName);
         firstName = snapshot.child(uid).child("firstName").val();
        
      
