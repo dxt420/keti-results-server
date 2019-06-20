@@ -117,6 +117,15 @@ app.post('/messageConsult', async (req, res) => {
   console.log(req.body['token']);
 
 
+  console.log("||||||||||||||  BODY ||||||||||||");
+  console.log(req.body);
+
+  console.log("||||||||||||||  BODY.MESSAGE ||||||||||||");
+  console.log(req.body['message']);
+
+
+  // obj["key3"] = "value3";
+
   const chat = {
     ...req.body,
     id: shortId.generate(),
@@ -127,7 +136,7 @@ app.post('/messageConsult', async (req, res) => {
 
   const message = chat.message;
 
-  const response = await dialogFlow.sendConsult(message,req.body['token']);
+  const response = await dialogFlow.sendConsult(message);
 
 
 
