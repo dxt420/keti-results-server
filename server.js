@@ -107,7 +107,7 @@ app.post('/initiate',  dialogFlowApp);
 
 app.post('/messageConsult', async (req, res) => {
   // simulate actual db save with id and createdAt added
-  console.log(req);
+  // console.log(req);
   const chat = {
     ...req.body,
     id: shortId.generate(),
@@ -119,13 +119,7 @@ app.post('/messageConsult', async (req, res) => {
   const message = chat.message;
 
   const response = await dialogFlow.sendConsult(message);
-  //console.log(response.data);
-  //console.log(response.data.result);
-  //console.log(response.data.result.fulfillment);
 
-  console.log(response.data.result.fulfillment.messages[0]);
-  console.log(response.data.result.fulfillment.messages);
-  console.log(response.data.result.fulfillment.messages[0].type);
 
 
   if (response.data.result.fulfillment.messages[0].type == 1) {
@@ -164,7 +158,7 @@ app.post('/messageConsult', async (req, res) => {
 
 app.post('/messageRefer', async (req, res) => {
   // simulate actual db save with id and createdAt added
-  console.log(req);
+ 
   const chat = {
     ...req.body,
     id: shortId.generate(),
@@ -176,13 +170,7 @@ app.post('/messageRefer', async (req, res) => {
   const message = chat.message;
 
   const response = await dialogFlow.sendRefer(message);
-  //console.log(response.data);
-  //console.log(response.data.result);
-  //console.log(response.data.result.fulfillment);
 
-  console.log(response.data.result.fulfillment.messages[0]);
-  console.log(response.data.result.fulfillment.messages);
-  console.log(response.data.result.fulfillment.messages[0].type);
 
 
   if (response.data.result.fulfillment.messages[0].type == 1) {
@@ -221,28 +209,7 @@ app.post('/messageRefer', async (req, res) => {
 
 // });
 app.post('/messageResults', async (req, res) => {
-//   // simulate actual db save with id and createdAt added
-//   console.log(req.body.queryResult.fulfillmentMessages[0]);
 
-  // const action = req.body.queryResult.queryText;
-
-//   console.log("--------------------------------");
-//   // console.log("Action =>", action);
-//   console.log("--------------------------------");
-
-
-  // console.log("--------------------------------");
-  // console.log("User Text =>", req.body.queryResult.queryText);
-  // console.log("--------------------------------");
-
-  console.log("--------------------------------");
-  console.log("Request =>", req);
-  console.log("--------------------------------");
-
-
-  console.log("--------------------------------");
-  console.log("Request Body=>", req.body);
-  console.log("--------------------------------");
 
   const chat = {
     ...req.body,
@@ -250,73 +217,12 @@ app.post('/messageResults', async (req, res) => {
     createdAt: new Date().toISOString()
   }
 
-//   // console.log();
-//   // console.log("chat =>", chat);
-//   console.log("--------------------------------");
-//   console.log("Chat Object =>", chat);
-//   console.log("--------------------------------");
-
 //   //update pusher listeners
   pusher.trigger('chat-bot', 'chat', chat)
 
   const message = req.body.message;
 //   // console.log(message);
   const response = await dialogFlow.sendResult(message);
-
-  console.log("--------------------------------");
-  // console.log("Response Data =>",response.data);
-  console.log("--------------------------------");
-
-  console.log("--------------------------------");
-  // console.log("Response Data Result =>",response.data.result);
-  console.log("--------------------------------");
-
-  console.log("--------------------------------");
-  console.log("Response Data Result Fulfillment =>", response.data.result.fulfillment);
-
-  console.log("--------------------------------");
-  
-  
-  
-
-
-//   console.log("--------------------------------");
-//   console.log("Dialogflow Response =>", response.data);
-//   console.log("--------------------------------");
-
-
-//   // console.log(req.body.queryResult.fulfillmentMessages[0]);
-
-//   // console.log(response.data.result.fulfillment.messages[0]);
-//   // console.log(response.data.result.fulfillment);
-//   // console.log(response.data.result.fulfillment.messages[0].type);
-
-
-//   if (response.data.result.fulfillment.messages[0].type == 1) {
-//     // trigger this update to our pushers listeners
-//     pusher.trigger('chat-bot', 'chat', {
-
-//       message: `${response.data.result.fulfillment.speech}`,
-//       extra: response.data.result.fulfillment.messages[0],
-//       type: 'bot',
-//       kind: 'ONE',
-//       createdAt: new Date().toISOString(),
-//       id: shortId.generate()
-//     })
-
-
-//   } else {
-//     // trigger this update to our pushers listeners
-//     pusher.trigger('chat-bot', 'chat', {
-
-//       message: `${response.data.result.fulfillment.speech}`,
-//       type: 'bot',
-//       kind: 'ZERO',
-//       createdAt: new Date().toISOString(),
-//       id: shortId.generate()
-//     })
-
-//   }
 
 
     // trigger this update to our pushers listeners
