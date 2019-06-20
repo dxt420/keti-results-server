@@ -5,6 +5,7 @@ const { dialogflow } = require('actions-on-google')
 const admin = require('firebase-admin')
 var server = require('./server');
 
+console.log("In Custom FF");
 console.log(server.uid);
 console.log(server.firstName)
 
@@ -21,16 +22,9 @@ app.intent("Welcome", (conv) => {
 });
 
 
-app.intent("hpv - yes", (conv) => {
-  // handler for this intent
-
-// console.log(conv);
-
-
-  conv.ask(`get capture`);
-  conv.ask(`kick it balotelli`);
-
-
+app.intent("hh", (conv) => {
+    // conv.add('Hi ' + server.firstName);
+    conv.add('BIF ');
 });
 
 
