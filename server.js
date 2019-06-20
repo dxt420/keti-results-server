@@ -87,9 +87,9 @@ app.post('/getUser', (req, res) => {
       console.log('Dext was here');
 
       admin.database().ref('users').once("value").then((snapshot) => {
-        console.log(firstName);
+        
         firstName = snapshot.child(uid).child("firstName").val();
-       
+        console.log(firstName);
      
       });
 
