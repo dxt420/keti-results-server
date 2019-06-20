@@ -18,17 +18,17 @@ const dialogFlowApp = require("./dialogflowApp");
 
 
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",
-  authDomain: "chanjia-e9ddb.firebaseapp.com",
-  databaseURL: "https://chanjia-e9ddb.firebaseio.com",
-  projectId: "chanjia-e9ddb",
-  storageBucket: "chanjia-e9ddb.appspot.com",
-  messagingSenderId: "885878744432"
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBbcT4BZ8tiDWsrbV16eFgo_z17bqBsOBs",
+//   authDomain: "chanjia-e9ddb.firebaseapp.com",
+//   databaseURL: "https://chanjia-e9ddb.firebaseio.com",
+//   projectId: "chanjia-e9ddb",
+//   storageBucket: "chanjia-e9ddb.appspot.com",
+//   messagingSenderId: "885878744432"
 
-}
+// }
 
-admin.initializeApp(firebaseConfig)
+admin.initializeApp()
 
 const pusher = new Pusher({
   appId: '763384',
