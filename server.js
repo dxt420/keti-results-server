@@ -13,7 +13,7 @@ const dialogFlow = require('./diagflow')
 const app = express()
 const dialogFlowApp = require("./dialogflowApp");
 
-var serviceAccount = require("path/to/serviceAccountKey.json");
+var serviceAccount = require("serviceAccountKey.json");
 
 
 
