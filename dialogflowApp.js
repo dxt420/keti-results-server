@@ -14,15 +14,21 @@ const app = dialogflow({
 
 
 app.intent("Welcome", (conv) => {
-  // conv.add('Hi ' + server.firstName);
-  // console.log(conv)
-  conv.add('Hi there ');
+
+  conv.add('Hi there. I am Keti and I am going to be your E-oncolgist today ');
+  conv.add('Thank you for choosing me');
+  // conv.add('How can i help you? ');
 });
 
 
-app.intent("Fine", (conv) => {
-    conv.add('PDL ');
+app.intent("IntroTwo", (conv) => {
+  conv.add('I may have to ask you a couple of personal questions');
+  conv.add('This will help ease the assessment of the consultaion');
+  conv.add('Are you okay with sharing personal information with me ?');
 });
+
+
+
 
 
 
