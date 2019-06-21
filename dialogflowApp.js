@@ -14,8 +14,9 @@ const app = dialogflow({
 
 
 app.intent("Welcome", (conv) => {
-  conv.add('Hi');
-  conv.add('How are you?');
+  conv.add(`Hi`);
+  conv.add(`How are you?`);
+
 
   // conv.add('Hi there. I am Keti and I am going to be your E-oncolgist today ');
   // conv.add('Thank you for choosing me');
