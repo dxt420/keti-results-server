@@ -14,10 +14,11 @@ const app = dialogflow({
 
 
 app.intent("Welcome", (conv) => {
+  conv.add('Hi');
 
-  conv.add('Hi there. I am Keti and I am going to be your E-oncolgist today ');
-  conv.add('Thank you for choosing me');
-  // conv.add('How can i help you? ');
+  // conv.add('Hi there. I am Keti and I am going to be your E-oncolgist today ');
+  // conv.add('Thank you for choosing me');
+  // // conv.add('How can i help you? ');
 });
 
 
