@@ -138,18 +138,24 @@ app.post('/messageConsult', async (req, res) => {
 
   const response = await dialogFlow.sendConsult(message);
 
+  // pusher.trigger('chat-bot', 'chat', {
 
+  //   message: `${response.data.result.fulfillment.speech}`,
+  //   extra: response.data.result.fulfillment.messages[0],
+  //   type: 'bot',
+  //   kind: 'ONE',
+  //   createdAt: new Date().toISOString(),
+  //   id: shortId.generate()
+  // })
 
   pusher.trigger('chat-bot', 'chat', {
 
     message: `${response.data.result.fulfillment.speech}`,
-    extra: response.data.result.fulfillment.messages[0],
     type: 'bot',
-    kind: 'ONE',
+    kind: 'ZERO',
     createdAt: new Date().toISOString(),
     id: shortId.generate()
   })
-
 
 
   res.send(chat)
