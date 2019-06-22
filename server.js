@@ -140,31 +140,15 @@ app.post('/messageConsult', async (req, res) => {
 
 
 
-  if (response.data.result.fulfillment.messages[0].type == 1) {
-    // trigger this update to our pushers listeners
-    pusher.trigger('chat-bot', 'chat', {
+  pusher.trigger('chat-bot', 'chat', {
 
-      message: `${response.data.result.fulfillment.speech}`,
-      extra: response.data.result.fulfillment.messages[0],
-      type: 'bot',
-      kind: 'ONE',
-      createdAt: new Date().toISOString(),
-      id: shortId.generate()
-    })
-
-
-  } else {
-    // trigger this update to our pushers listeners
-    pusher.trigger('chat-bot', 'chat', {
-
-      message: `${response.data.result.fulfillment.speech}`,
-      type: 'bot',
-      kind: 'ZERO',
-      createdAt: new Date().toISOString(),
-      id: shortId.generate()
-    })
-
-  }
+    message: `${response.data.result.fulfillment.speech}`,
+    extra: response.data.result.fulfillment.messages[0],
+    type: 'bot',
+    kind: 'ONE',
+    createdAt: new Date().toISOString(),
+    id: shortId.generate()
+  })
 
 
 

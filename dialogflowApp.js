@@ -26,7 +26,7 @@ app.intent("Welcome", (conv) => {
 
 app.intent("IntroTwo", (conv) => {
   conv.add('I may have to ask you a couple of personal questions');
-  conv.add('This will help ease the assessment of the consultaion');
+  conv.add('This will help ease the assessment of the consultation');
   conv.add('Are you okay with sharing personal information with me ?');
 });
 
